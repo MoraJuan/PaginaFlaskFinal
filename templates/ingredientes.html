@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="static\css\style.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <nav>
+            <img class="logo-ingredientes" src="../static/img/image2.png">
+        </nav>
+    </head>
+    <body class="body-ingredientes">
+        <form action="{{ url_for('ingredientes') }}" method="post">
+            <center>
+                <label class="NombreIngrediente"> Ingrediente</label><br>
+                <br>
+                <label for = "ingredientes"> Nombre de Ingrediente</label><br>
+                <input type = "text" name = "nombre" placeholder="Nombre" required = ""/><br> 
+                <br>
+                <label for ="Cantidad"> Cantidad</label><br>
+                <input type = "text" name = "Cantidad" placeholder="Cantidad" required ="" /><br>
+                <br>
+                <label for = "Unidad"> Unidad de medidad</label><br>
+                <input type ="text" name = "Unidad" placeholder="Unidad de medidad" required ="" /><br>
+                <br>
+                <br>
+                <input type = "submit" value = "Guardar Ingredientes"/>
+                <input type = "hidden" name="id" value="{{receta}}">
+                <input type = "hidden" name="i" value = '{{cantidad_ingrediente}}'>
+                <a href="{{ url_for('bienvenida') }}" class = "Boton"> Volver a Inicio </a>
+            </center>
+        </from>
+    </body>
+</html>

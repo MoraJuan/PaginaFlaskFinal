@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="static\css\style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <title>Buscar por tiempo</title>
+    <nav>
+        <img class="logo-tiempo1" src="../static/img/image2.png">
+    </nav>
+</head>
+<body class="body-tiempo1">
+    <center>
+        <div class="ListaTiempo">
+        <h1>Recetas</h1>
+        {% for Xreceta in receta %}
+        <form method="post" action="{{ url_for('inforeceta') }}" >
+            {% if Xreceta.tiempo is not none %}
+                <br>
+                <a>{{Xreceta.nombre}}</a>  <input id="recetaid" name="recetaid" type="hidden" value = "{{Xreceta.id}}">
+                <input type="submit" name="ver" value="Ver receta">
+            {% endif %}
+        </form>    
+        {%endfor%}
+        <br>
+        <br>
+        <center><a href="{{ url_for('bienvenida') }}" class = "Boton"> Salir </a></center>
+        </div>
+    </center>
+</body>
+</html>

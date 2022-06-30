@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="static\css\style.css">
+
+  </head>
+  <body class="body-bienvenida">
+    <form action = "http://localhost:5000/bienvenida" method = "post">
+        <div class="menu">
+          <img class="logoBienvenida" src="../static/img/image2.png"><br>
+          <a href = "{{ url_for('recetas') }}"> Compartir receta </a></li><br>
+          <br>
+          <a href = "{{ url_for('lista_ranking') }}"> Consultar ranking </a></li><br>
+          <br>
+          <a href = "{{ url_for('listar_tiempo')}}"> Consultar tiempo</a><br>
+          <br>
+          <a href = "{{ url_for('listar_ingredientes') }}"> Consultar ingredientes</a>
+        </div> 
+    </form>
+  </body>
+</html>

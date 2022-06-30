@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="static\css\style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <title>Listar por Ingredientes</title>
+    <nav>
+        <img class="logo" src="../static/img/image2.png">
+    </nav>
+</head>
+<body class="body-listar-ingredientes">
+    <form method="post" action="{{ url_for('inforeceta') }} ">
+        <center>
+        {% for Xingrediente in Ingrediente %}
+            <br>
+            <a>Recetas: {{Xingrediente.receta.nombre}}</a> <input id="recetaid" name="recetaid" type="hidden" value = "{{Xingrediente.receta.id}}"> 
+            {% if Xingrediente.receta.usuario.id != sesion %}
+                <input type="submit" name="ver" value="Ver Receta">
+            {% endif %} 
+        {%endfor%}
+    </center>
+    </form>
+</body>
+</html>

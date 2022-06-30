@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="static/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <title>Receta</title>
+    <nav>
+        <img class="logo-inforeceta" src="../static/img/image2.png">
+    </nav>
+</head>
+<body class="body-listarinfo">
+    <form method="post" action="{{ url_for('incrementar') }} ">
+        <table class="table" >
+        <tr>
+        <td><h2> Nombre de la receta: {{receta.nombre}}</h2><br><br> </td>
+        </tr>
+        <tr>
+        <td><h4> Compartida por {{receta.usuario.nombre}} </h4><br></td>
+        </tr>
+        <tr>
+        <td><h4> Descripcion: {{receta.elaboracion}} </h4><br></td>
+        </tr>
+        <tr>
+        <td><h4> Tiempo: {{receta.tiempo}} mins </h4><br></td>
+        </tr>
+        <tr>
+        <td><h4> Fecha: {{receta.fecha}} </h4><br></td>
+        </tr>
+        <tr>
+        <td><h2> Ingredientes</h2><br><br></td>
+        </tr>
+        {% for i in receta.ingrediente %}
+            <tr>
+            <td><h4> Nombre: {{i.nombre}}</h4><br></td>
+            </tr>
+            <tr>
+            <td><h4> Cantidad: {{i.cantidad}} Unidad: {{i.unidad}} </h4><br></td>
+            </tr>
+        {%endfor%}
+
+        {% if receta.usuario.id != sesion %}
+                <tr>
+                <td><input type="submit" name="megusta" value="Me gusta">
+                <input type="hidden" name="recetaid" value="{{receta.id}}"></td>
+                </tr>
+        {% endif %} 
+        <tr>
+        <td><center><a href="{{ url_for('bienvenida') }}" class = "Boton"> Salir </a></center></td>
+        </tr>
+        </table>
+        </form>
+</body>
+</html>

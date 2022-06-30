@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="static\css\style.css">
+       <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <title>Listado recetas</title>
+    <center>
+    <nav>
+      <img class="logo-ranking" src="../static/img/image2.png">
+    </nav>
+  </center>
+</head>
+<body class="body-ranking">
+    {% for Xreceta in receta %}  
+        <table class="table">
+        <br>
+        <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Receta</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Cantidad de me gusta</th>
+            </tr>
+          </thead>
+          <tbody>
+                <th scope="row"></th>
+                <td>{{Xreceta.usuario.nombre}}</td>
+                
+                
+                
+                <td>Nombre: {{Xreceta.nombre}}</td>
+                
+                
+                <td>Cantidad de me gusta: {{Xreceta.cantidadmegusta}}</td>
+                
+          </tbody>
+        </table>
+        
+    {%endfor%}
+    <center><a href="{{ url_for('bienvenida') }}" class = "Boton"> Salir </a></center>
+</body>
+</html>
